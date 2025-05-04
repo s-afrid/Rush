@@ -1,12 +1,14 @@
 import sys
 import pygame
-
+from setting import Settings
 class Rush:
     """Class that handles game behaviour and assets."""
     def __init__(self):
         """Initialize the game."""
         pygame.init()
-        self.window = pygame.display.set_mode((800, 600))
+        self.setting = Settings()
+        self.window = pygame.display.set_mode((
+            self.setting.width, self.setting.height))
         pygame.display.set_caption("Rush")
     def run_game(self):
         """Run the game."""
