@@ -1,6 +1,9 @@
 import sys
 import pygame
 from setting import Settings
+from car import Car
+
+
 class Rush:
     """Class that handles game behaviour and assets."""
     def __init__(self):
@@ -10,6 +13,8 @@ class Rush:
         self.window = pygame.display.set_mode((
             self.setting.width, self.setting.height))
         pygame.display.set_caption("Rush")
+        # Car object
+        self.car = Car(self)
     def run_game(self):
         """Run the game."""
         while True:
@@ -18,6 +23,8 @@ class Rush:
                 if event.type == pygame.QUIT:
                     sys.exit()
 
+            # Draw car on the screen
+            self.car.blitme()
             # Update the display.
             pygame.display.update()
 
