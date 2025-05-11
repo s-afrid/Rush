@@ -7,6 +7,8 @@ class Car:
         self.screen_rect = rush_screen.window.get_rect()
         # Load image and get its rect
         self.image = pygame.image.load('images/car.png')
+        # Resize car
+        self.image = pygame.transform.scale(self.image,(90,120))
         self.rect = self.image.get_rect()
         # Start position of the on the screen
         self.rect.center = self.screen_rect.center

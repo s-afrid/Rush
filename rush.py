@@ -19,14 +19,24 @@ class Rush:
         """Run the game."""
         while True:
             # Watch for keyboard and mouse events.
-            for event in pygame.event.get():
+            self._event_check()
+            # Update the screen.
+            self._update_window()
+
+    def _event_check(self):
+        """Function to handle keyboard and mouse events"""
+        for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
 
-            # Draw car on the screen
-            self.car.blitme()
-            # Update the display.
-            pygame.display.update()
+    def _update_window(self):
+        """Funtion to handle screen updates"""
+        # Set background
+        self.window.blit(self.setting.bg,self.setting.bg.get_rect())
+        # Draw car on the screen
+        self.car.blitme()
+        # Update the display.
+        pygame.display.update()
 
 if __name__ == "__main__":
     rush = Rush()
