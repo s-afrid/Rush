@@ -20,6 +20,8 @@ class Rush:
         while True:
             # Watch for keyboard and mouse events.
             self._event_check()
+            # Update car position
+            self.car.update_car()
             # Update the screen.
             self._update_window()
 
@@ -28,6 +30,12 @@ class Rush:
         for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_RIGHT:
+                        self.car.move_right = True
+                elif event.type == pygame.KEYUP:
+                    if event.key == pygame.K_RIGHT:
+                        self.car.move_right = False
 
     def _update_window(self):
         """Funtion to handle screen updates"""
